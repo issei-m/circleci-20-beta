@@ -1,0 +1,15 @@
+machine:
+  timezone:
+    Asia/Tokyo
+  services:
+    - docker
+
+dependencies:
+  override:
+    - docker build -t my_nice_image .
+
+test:
+  override:
+    - docker run --rm my_nice_image php --version
+    - docker run --rm my_nice_image php -i
+
